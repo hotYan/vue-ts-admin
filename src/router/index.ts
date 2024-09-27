@@ -1,6 +1,4 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
-
-
 const routes = [
   { 
     path: '/', 
@@ -9,7 +7,6 @@ const routes = [
   { path: '/about', component: ()=>import('@/components/Test.vue') },
 
 ]
-
 const router = createRouter({
   history: createMemoryHistory(),
   routes,
