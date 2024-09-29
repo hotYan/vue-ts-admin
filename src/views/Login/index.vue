@@ -1,25 +1,31 @@
 <template>
-  <div class="">登录界面</div>
+  <div style="width: 1200px; margin: 200px auto 0">
+    <a-row type="flex" justify="space-around" align="middle">
+      <a-col :span="9">
+        <div style="margin-left: -100px">
+          <!-- <img :src="logoImg" alt="kAPok应用级云原生平台" title="kAPok应用级云原生平台" width="600px" /> -->
+        </div>
+      </a-col>
+      <a-col :span="8">
+        <div>
+          <LoginForm />
+        </div>
+        <p style="padding: 10px 0">
+          <span style="color: #000000a6"> 推荐使用浏览器: </span>
+          <img :src="chromeImg" alt="chrome" width="28px" height="28px" />
+        </p>
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
-<script setup lang='ts'>
-import {ref,reactive,computed,onMounted,watch,defineProps,withDefaults,defineEmits,defineExpose} from 'vue';
-
-const count = ref(0); //响应式的值
-const state = reactive({ count: 0 }); //响应式对象
-const age = computed(() => state.count); //响应式计算属性
-const doubleAge = computed({
-  get() { return state.count * 2; },
-  set(val: number) { state.count = val / 2; },
+<script setup lang="ts">
+// import logoImg from "@/assets/login/logo.png";
+import chromeImg from "@/assets/login/chrome.jpg";
+import LoginForm from "./login-form.vue";
+defineOptions({
+  name: "Login"
 });
-onMounted(() => { });
-watch(count, () => {}); // 监听单个值
-watch([count, age], () => {}); // 监听多个值
-// const props = defineProps({ msg: String});// 没有默认值
-const props = withDefaults(defineProps<{ msg?: string }>(), { msg: 'hello' }); // 带默认值
-const emit = defineEmits(['click']);
-emit('click', count.value);
-defineExpose();
 </script>
 
 <style lang="scss" scoped></style>

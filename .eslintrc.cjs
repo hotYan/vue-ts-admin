@@ -5,24 +5,25 @@ module.exports = {
     node: true,
     es6: true
   },
-  parser: 'vue-eslint-parser',
+  parser: "vue-eslint-parser",
   parserOptions: {
-      ecmaVersion: 2020,
-      sourceType: 'module',
-      parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
+    sourceType: "module",
+    parser: "@typescript-eslint/parser"
   },
   extends: [
-      'eslint:recommended',
-      'plugin:vue/vue3-recommended',
-      'plugin:@typescript-eslint/recommended',
-      'prettier', // 确保 prettier 最后
+    // 'eslint:recommended',
+    "plugin:vue/vue3-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+    // 'prettier', // 确保 prettier 最后
   ],
-   /**
+  /**
    * "off" 或 0    ==>  关闭规则
    * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
    * "error" 或 2  ==>  规则作为一个错误（代码不能执行，界面报错）
    */
-   rules: {
+  rules: {
     // eslint (http://eslint.cn/docs/rules)
     "no-var": "error", // 要求使用 let 或 const 而不是 var
     "no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行

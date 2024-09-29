@@ -1,27 +1,21 @@
 <template>
-  <div class="">
-    
-  </div>
+  <a-layout>
+    <a-layout-header> </a-layout-header>
+    <a-layout style="height: calc(100vh - 64px)">
+      <a-layout-sider width="276" style="background: #001529">
+        <SideMenu />
+      </a-layout-sider>
+      <a-layout>
+        <a-layout-content :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }">
+          <BaseContent />
+        </a-layout-content>
+        <a-layout-footer style="text-align: center"> Ant Design ©2018 Created by Ant UED </a-layout-footer>
+      </a-layout>
+    </a-layout>
+  </a-layout>
 </template>
-
-<script setup lang='ts'>
-import {ref,reactive,computed,onMounted,watch,defineProps,withDefaults,defineEmits,defineExpose} from 'vue';
-
-const count = ref(0); //响应式的值
-const state = reactive({ count: 0 }); //响应式对象
-const age = computed(() => state.count); //响应式计算属性
-const doubleAge = computed({
-  get() { return state.count * 2; },
-  set(val: number) { state.count = val / 2; },
-});
-onMounted(() => { });
-watch(count, () => {}); // 监听单个值
-watch([count, age], () => {}); // 监听多个值
-// const props = defineProps({ msg: String});// 没有默认值
-const props = withDefaults(defineProps<{ msg?: string }>(), { msg: 'hello' }); // 带默认值
-const emit = defineEmits(['click']);
-emit('click', count.value);
-defineExpose();
+<script lang="ts" setup>
+import SideMenu from "./Menu/index.vue";
+import BaseContent from "./Main/index.vue";
 </script>
-
-<style lang="scss" scoped></style>
+<style></style>
